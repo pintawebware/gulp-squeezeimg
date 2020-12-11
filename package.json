@@ -1,0 +1,35 @@
+{
+  "name": "squeezeimg-gulp",
+  "version": "1.0.0",
+  "description": "Plugins squeezeimg.com ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/kirians/squeezeimg-gulp.git"
+  },
+  "keywords": [
+    "compress-images",
+    "convert-images"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/kirians/squeezeimg-gulp/issues"
+  },
+  "homepage": "https://gitlab.com/kirians/squeezeimg-gulp#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "form-data": "^3.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-util": "^3.0.8",
+    "request": "^2.88.2",
+    "through2": "^4.0.2",
+    "vinyl": "^2.2.1",
+    "yargs": "^16.2.0"
+  }
+}
