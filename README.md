@@ -28,12 +28,13 @@ gulp.task('default', gulp.series('gulp-squeezeimg'));
 
 ### squeezeimg(option)
 
-#### options
-
-Object { 
-  token - 'Your token', https://squeezeimg.com/
-  qlt - quality precentage (max 80), default 60
-  method - 'convert or compress', default compress
-  to - convert to format (jp2,webp)
-}
+#### Options Object
+### token : 
+ 'Your token', https://squeezeimg.com/
+### qlt :
+ Quality precentage (max 80), default 60
+### method : 
+'convert or compress', default compress
+### to
+convert to format (jp2,webp)
   
