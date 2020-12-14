@@ -21,11 +21,20 @@ module.exports = function (options) {
                     if (err) {
                         this.emit('error', new gutil.PluginError(PLUGIN_NAME, err.message));
                         return callback();
-                    } else {
-                        file.basename = resp.headers["content-disposition"].split('=').pop().replace(/"/g,'');
+                    } else if(resp.statusCode === 200) {
+                        if(options.rename){
+                            file.basename = resp.headers["content-disposition"].split('=').pop().replace(/"/g,'');
+                        }
+                        file.basename  = file.basename.replace(path.extname(file.basename),path.extname(resp.headers["content-disposition"].split('=').pop().replace(/"/g,'')));
                         file.contents = Buffer.from(body,'base64');
-                        callback(null,file);
+                        return callback(null,file);
+                    } else if( resp.statusCode !== 504){
+                        let str = Buffer.from(body,'base64').toString();
+                        let res = JSON.parse(str);
+                        this.emit('error', new gutil.PluginError(PLUGIN_NAME, res.error || res.message));
+                        return callback();
                     }
+                    return callback();
                 });
                 let formData = req.form(); 
                 formData.append('file_name',file.relative);
