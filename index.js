@@ -1,6 +1,7 @@
-var through = require('through2'),
+const through = require('through2'),
     gutil = require('gulp-util');
-var request = require('request');
+const request = require('request');
+const path = require('path');
 
 const PLUGIN_NAME = 'gulp-squeezeimg'
 const URL = 'https://api.squeezeimg.com/plugin';    //http://localhost:3000/pluginRun'
