@@ -1,9 +1,10 @@
-var through = require('through2'),
+const through = require('through2'),
     gutil = require('gulp-util');
-var request = require('request');
+const request = require('request');
+const path = require('path');
 
 const PLUGIN_NAME = 'gulp-squeezeimg'
-const URL = 'https://api.squeezeimg.com/plugin';    //http://localhost:3000/pluginRun'
+const URL = 'https://api.squeezeimg.com/plugin';    //'https://api.squeezeimg.com/plugin  http://localhost:3000/plugin
 const EXTENSIONS = ['.jpg', '.png', '.svg','.jpeg' ,'.jp2','.gif','.tiff','.bmp','.PNG','.JPEG','.GIF','.SVG','.TIFF','.BMP',];
 
 module.exports = function (options) {
@@ -21,11 +22,20 @@ module.exports = function (options) {
                     if (err) {
                         this.emit('error', new gutil.PluginError(PLUGIN_NAME, err.message));
                         return callback();
-                    } else {
-                        file.basename = resp.headers["content-disposition"].split('=').pop().replace(/"/g,'');
+                    } else if(resp.statusCode === 200) {
+                        if(options.rename){
+                            file.basename = resp.headers["content-disposition"].split('=').pop().replace(/"/g,'');
+                        }
+                        file.basename  = file.basename.replace(path.extname(file.basename),path.extname(resp.headers["content-disposition"].split('=').pop().replace(/"/g,'')));
                         file.contents = Buffer.from(body,'base64');
-                        callback(null,file);
+                        return callback(null,file);
+                    } else if( resp.statusCode !== 504){
+                        let str = Buffer.from(body,'base64').toString();
+                        let res = JSON.parse(str);
+                        this.emit('error', new gutil.PluginError(PLUGIN_NAME, res.error || res.message));
+                        return callback();
                     }
+                    return callback();
                 });
                 let formData = req.form(); 
                 formData.append('file_name',file.relative);
@@ -49,4 +59,4 @@ module.exports = function (options) {
     }
 
     return through.obj(run);
-}
+}   
