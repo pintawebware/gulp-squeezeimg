@@ -14,7 +14,7 @@
     "compress-images",
     "convert-images"
   ],
-  "author": "",
+  "author": "PintaWebWare",
   "license": "License MIT License (c) PintaWebware",
   "bugs": {
     "url": "https://gitlab.com/kirians/squeezeimg-gulp/issues"
