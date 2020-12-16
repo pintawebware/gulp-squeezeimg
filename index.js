@@ -4,7 +4,7 @@ const request = require('request');
 const path = require('path');
 
 const PLUGIN_NAME = 'gulp-squeezeimg'
-const URL = 'https://api.squeezeimg.com/plugin';    //http://localhost:3000/pluginRun'
+const URL = 'https://api.squeezeimg.com/plugin';  
 const EXTENSIONS = ['.jpg', '.png', '.svg','.jpeg' ,'.jp2','.gif','.tiff','.bmp','.PNG','.JPEG','.GIF','.SVG','.TIFF','.BMP',];
 
 module.exports = function (options) {
@@ -18,7 +18,7 @@ module.exports = function (options) {
               return callback();
             }
             if( EXTENSIONS.includes(`.${file.relative.split('.').pop()}`)) {
-                let req = request.post({ url:URL,strem:true,encoding:'base64'}, (err, resp, body) => {
+                let req = request.post({ url:URL,strem:true,encoding:'binary'}, (err, resp, body) => {
                     if (err) {
                         this.emit('error', new gutil.PluginError(PLUGIN_NAME, err.message));
                         return callback();
@@ -27,12 +27,15 @@ module.exports = function (options) {
                             file.basename = resp.headers["content-disposition"].split('=').pop().replace(/"/g,'');
                         }
                         file.basename  = file.basename.replace(path.extname(file.basename),path.extname(resp.headers["content-disposition"].split('=').pop().replace(/"/g,'')));
-                        file.contents = Buffer.from(body,'base64');
+                        file.contents = Buffer.from(body,'binary');
                         return callback(null,file);
                     } else if( resp.statusCode !== 504){
-                        let str = Buffer.from(body,'base64').toString();
-                        let res = JSON.parse(str);
-                        this.emit('error', new gutil.PluginError(PLUGIN_NAME, res.error || res.message));
+                        let str = Buffer.from(body,'binary').toString();
+                        let res = {};
+                        try {
+                            res = JSON.parse(str);
+                        } catch(err) {}
+                        this.emit('error', new gutil.PluginError(PLUGIN_NAME, res.error || res.message || str));
                         return callback();
                     }
                     return callback();
@@ -42,8 +45,7 @@ module.exports = function (options) {
                 formData.append('qlt',options.qlt|| 60);
                 formData.append('token',options.token);
                 formData.append('method',options.method || 'compress');
-                if(options.to)
-                    formData.append('to', options.to);
+                formData.append('to', options.to || 'webp');
                 if (file.isBuffer()) {
                     formData.append('file',file.contents,{ filename:file.relative});
                 } 

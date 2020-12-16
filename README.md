@@ -1,6 +1,14 @@
 # squeezeimg gulp
 
-Gulp plugin to optimize and convert image.
+The Gulp Squeezeimg plugin is destined to optimize unlimited images without any visible loss in quality.
+
+Using the plugin Gulp Squeezeimg you can easily minify the size of all your images, speed up loading of your websites and applications.
+
+You can compress your images of such formats - .png, .jpg/.jpeg, .gif, .svg, .bmp, .tiff.
+
+Also plugin allows you to convert your images to webP and jp2 format.
+
+Try the plugin functions right now. To do this, go to https://squeezeimg.com/.
 
 ## Install
 
@@ -42,8 +50,10 @@ gulp.task('default', gulp.series('gulp-squeezeimg'));
 ### qlt :
  Quality precentage (max 80), default 60
 ### method : 
-'convert or compress', default compress
+'convert or compress', default 'compress'
 ### to
-convert to format ( jp2, webp )
+convert to format ( jp2, webp ) default 'webp'
 ### rename 
 rename image, default false  
+
+### License MIT License (c) PintaWebware
