@@ -13,7 +13,7 @@ Try the plugin functions right now. To do this, go to https://squeezeimg.com/.
 ## Install
 
 ```sh
-$ npm install --save-dev gulp-squeezeimg
+$ npm install --save-dev @pintawebware/gulp-squeezeimg
 ```
 
 
