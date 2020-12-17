@@ -19,6 +19,7 @@ const logger = createLogger({
         myFormat
     ),
     transports: [
+        new transports.Console(),
         new transports.File({
             filename: path.join(__dirname, 'error.log'),
             level: 'error',
@@ -58,7 +59,7 @@ module.exports = function (options) {
                         try {
                             res = JSON.parse(str);
                         } catch(err) {}
-                        logger.error(`${PLUGIN_NAME} ${res.error || res.message || str}`)
+                        logger.error(`${PLUGIN_NAME} ${res.error.message || res.message || str}`)
                         return callback();
                     }
                     return callback();
