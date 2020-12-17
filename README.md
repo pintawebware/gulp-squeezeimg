@@ -20,21 +20,20 @@ $ npm install --save-dev gulp-squeezeimg
 ## Usage
  gulpfile.js 
 ```js
-var gulp = require('gulp');
-var squeezeimg = require('gulp-squeezeimg');
+var squeezeimg = require('@pintawebware/gulp-squeezeimg');
 
 const option = {
     token: 'Your API token',
     qlt: 60,
     method: 'compress',
-    to: 'webp'
+    to: 'webp',
     rename: false,
   }
 
 gulp.task('gulp-squeezeimg', function() {
   return gulp.src('images/*') 
     .pipe(squeezeimg(option))
-    .pipe(gulp.dest('dist/images'));
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('default', gulp.series('gulp-squeezeimg'));
