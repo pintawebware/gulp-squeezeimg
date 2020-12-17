@@ -85,4 +85,4 @@ module.exports = function (options) {
     }
 
     return through.obj(run);
-}
+}   
