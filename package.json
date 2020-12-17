@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/kirians/squeezeimg-gulp.git"
+    "url": "git+https://github.com/pintawebware/gulp-squeezeimg"
   },
   "keywords": [
     "compress-images",
@@ -17,9 +17,9 @@
   "author": "@PintaWebWare",
   "license": "License MIT License (c) PintaWebware",
   "bugs": {
-    "url": "https://gitlab.com/kirians/squeezeimg-gulp/issues"
+    "url": "https://github.com/pintawebware/gulp-squeezeimg"
   },
-  "homepage": "https://gitlab.com/kirians/squeezeimg-gulp#readme",
+  "homepage": "https://github.com/pintawebware/gulp-squeezeimg#readme",
   "devDependencies": {
     "gulp": "^4.0.2"
   },
