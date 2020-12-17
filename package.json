@@ -1,5 +1,5 @@
 {
-  "name": "squeezeimg-gulp",
+  "name": "gulp-squeezeimg",
   "version": "1.0.0",
   "description": "Plugins squeezeimg.com ",
   "main": "index.js",
@@ -17,11 +17,14 @@
   "author": "@PintaWebWare",
   "license": "License MIT License (c) PintaWebware",
   "bugs": {
-    "url": "https://github.com/pintawebware/gulp-squeezeimg"
+    "url": "https://github.com/pintawebware/gulp-squeezeimg/issues"
   },
   "homepage": "https://github.com/pintawebware/gulp-squeezeimg#readme",
   "devDependencies": {
     "gulp": "^4.0.2"
+  },
+  "bin": {
+    "gulp-squeezeimg": "bin/gulp-squeezeimg.js"
   },
   "dependencies": {
     "form-data": "^3.0.0",
