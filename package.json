@@ -14,8 +14,8 @@
     "compress-images",
     "convert-images"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "@PintaWebWare",
+  "license": "License MIT License (c) PintaWebware",
   "bugs": {
     "url": "https://gitlab.com/kirians/squeezeimg-gulp/issues"
   },
@@ -30,6 +30,7 @@
     "request": "^2.88.2",
     "through2": "^4.0.2",
     "vinyl": "^2.2.1",
+    "winston": "^3.3.3",
     "yargs": "^16.2.0"
   }
 }
