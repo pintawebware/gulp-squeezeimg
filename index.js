@@ -75,13 +75,11 @@ module.exports = function (options) {
                 } 
                 if (file.isStream()) {
                     logger.error(`${PLUGIN_NAME} Not supported stream.`)
-                    this.emit('error', new gutil.PluginError(PLUGIN_NAME, 'Not supported stream'));
                     return callback();
                 }
             }
         } catch (err) {
             logger.error(`${PLUGIN_NAME} ${err.message}`)
-            this.emit('error', new gutil.PluginError(PLUGIN_NAME, err.message));
             return callback();
         }
     }
