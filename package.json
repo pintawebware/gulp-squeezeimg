@@ -1,6 +1,6 @@
 {
-  "name": "squeezeimg-gulp",
-  "version": "1.0.0",
+  "name": "@pintawebware/gulp-squeezeimg",
+  "version": "1.0.2",
   "description": "Plugins squeezeimg.com ",
   "main": "index.js",
   "scripts": {
@@ -8,20 +8,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/kirians/squeezeimg-gulp.git"
+    "url": "git+https://github.com/pintawebware/gulp-squeezeimg.git"
   },
   "keywords": [
     "compress-images",
     "convert-images"
   ],
-  "author": "@PintaWebWare",
-  "license": "License MIT License (c) PintaWebware",
+  "author": "pintawebware",
+  "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/kirians/squeezeimg-gulp/issues"
+    "url": "https://github.com/pintawebware/gulp-squeezeimg/issues"
   },
-  "homepage": "https://gitlab.com/kirians/squeezeimg-gulp#readme",
+  "homepage": "https://github.com/pintawebware/gulp-squeezeimg#readme",
   "devDependencies": {
     "gulp": "^4.0.2"
+  },
+  "bin": {
+    "gulp-squeezeimg": "bin/gulp-squeezeimg.js"
   },
   "dependencies": {
     "form-data": "^3.0.0",
