@@ -57,15 +57,6 @@ gulp.task('default', gulp.series('gulp-squeezeimg'));
 ### qlt :
  Quality precentage (max 80), default 60
 ### method : 
-<<<<<<< HEAD
-'convert or compress', default compress
-### to
-convert to format ( jp2, webp )
-### rename 
-rename image, default false
-
-  
-=======
 'convert or compress', default 'compress'
 ### to
 convert to format ( jp2, webp ) default 'webp'
@@ -73,4 +64,3 @@ convert to format ( jp2, webp ) default 'webp'
 rename image, default false  ( If true, the file name is assigned by the server )
 
 ### License MIT License (c) PintaWebware
->>>>>>> main
