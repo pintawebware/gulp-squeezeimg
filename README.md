@@ -30,14 +30,6 @@ const option = {
     rename: false,
   }
 
-const option = {
-    token: 'Your API token',
-    qlt: 60,
-    method: 'compress',
-    to: 'webp'
-    rename: false,
-  }
-
 gulp.task('gulp-squeezeimg', function() {
   return gulp.src('images/*') 
     .pipe(squeezeimg(option))
