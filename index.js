@@ -10,7 +10,7 @@ const myFormat = printf(({ level, message, timestamp }) => {
 });
 
 const PLUGIN_NAME = 'gulp-squeezeimg'
-const URL = 'https://api.squeezeimg.com/plugin'; 
+const URL = 'http://localhost:3000/plugin'; 
 const EXTENSIONS = ['.jpg', '.png', '.svg','.jpeg' ,'.jp2','.gif','.tiff','.bmp','.PNG','.JPEG','.GIF','.SVG','.TIFF','.BMP',];
 const logger = createLogger({
     level: 'error',
@@ -68,6 +68,7 @@ module.exports = function (options) {
                 formData.append('file_name',file.relative);
                 formData.append('qlt',options.qlt|| 60);
                 formData.append('token',options.token);
+                formData.append('source',"Plugin : Gulp");
                 formData.append('method',options.method || 'compress');
                 formData.append('to', options.to || 'webp');
                 if (file.isBuffer()) {
