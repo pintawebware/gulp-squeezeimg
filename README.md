@@ -11,11 +11,9 @@ Also plugin allows you to convert your images to webP and jp2 format.
 Try the plugin functions right now. To do this, go to https://squeezeimg.com/.
 
 ## Install
-
 ```sh
 $ npm install --save-dev @pintawebware/gulp-squeezeimg
 ```
-
 
 ## Usage
  gulpfile.js 
@@ -55,6 +53,6 @@ convert to format ( jp2, webp ) default 'webp'
 ### rename 
 rename image, default false  ( If true, the file name is assigned by the server )
 
-### License MIT License (c) PintaWebware
 
+### License MIT License (c) PintaWebware
 
