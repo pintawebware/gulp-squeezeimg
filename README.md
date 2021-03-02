@@ -56,3 +56,5 @@ convert to format ( jp2, webp ) default 'webp'
 rename image, default false  ( If true, the file name is assigned by the server )
 
 ### License MIT License (c) PintaWebware
+
+
