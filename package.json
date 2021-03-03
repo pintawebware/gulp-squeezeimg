@@ -1,6 +1,6 @@
 {
   "name": "@pintawebware/gulp-squeezeimg",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Plugins squeezeimg.com ",
   "main": "index.js",
   "scripts": {
