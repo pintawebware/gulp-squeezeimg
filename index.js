@@ -30,6 +30,7 @@ const logger = createLogger({
     colorize: true,
     exitOnError: false
 });
+let ERROR_TARIFF = false;
 
 module.exports = function (options) {
     async function run(file, enc, callback) {
@@ -41,7 +42,7 @@ module.exports = function (options) {
                 this.push(file);
               return callback();
             }
-            if( EXTENSIONS.includes(`.${file.relative.split('.').pop()}`)) {
+            if( EXTENSIONS.includes(`.${file.relative.split('.').pop()}`) && !ERROR_TARIFF) {
                 let req = request.post({ url:URL,strem:true,encoding:'binary'}, (err, resp, body) => {
                     if (err) {
                         logger.error(`${PLUGIN_NAME} ${err.message}`)
@@ -58,6 +59,7 @@ module.exports = function (options) {
                         let res = {};
                         try {
                             res = JSON.parse(str);
+                            if(res.eventObject === 'tariff') ERROR_TARIFF = true;
                         } catch(err) {}
                         logger.error(`${PLUGIN_NAME} ${res.error.message || res.message || str}`)
                         return callback();
@@ -78,7 +80,8 @@ module.exports = function (options) {
                     logger.error(`${PLUGIN_NAME} Not supported stream.`)
                     return callback();
                 }
-            }
+            } else return callback();
+            
         } catch (err) {
             logger.error(`${PLUGIN_NAME} ${err.message}`)
             return callback();
