@@ -49,7 +49,7 @@ gulp.task('default', gulp.series('gulp-squeezeimg'));
 ### method : 
 'convert or compress', default 'compress'
 ### to
-convert to format ( jp2, webp ) default 'webp'
+convert to format ( jp2, webp, avif ) default 'webp'
 ### rename 
 rename image, default false  ( If true, the file name is assigned by the server )
 
